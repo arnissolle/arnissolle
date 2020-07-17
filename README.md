@@ -1,1 +1,1 @@
-## Ahoy 👋
+## Ahoy fellow developer 👋
