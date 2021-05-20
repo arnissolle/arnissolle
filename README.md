@@ -1,1 +1,1 @@
-### Ahoy fellow GitHubian 👋
+### Ahoy 👋
