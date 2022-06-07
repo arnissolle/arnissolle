@@ -4,8 +4,8 @@
 class Arnissolle
 {
     public function __construct(
-        private string $fullName = "Pierre Arnissolle",
         private string $username = "arnissolle",
+        private string $fullName = "Pierre Arnissolle",
         private string $jobTitle = "Backend Developer",
         private string $portfolioUrl = "https://arnissolle.com",
     ) {}
