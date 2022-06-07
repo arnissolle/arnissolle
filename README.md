@@ -1,5 +1,5 @@
 ```php
-<?php #8.1
+<?php #8.1-cli
 
 class Arnissolle
 {
