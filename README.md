@@ -4,10 +4,10 @@
 class Arnissolle
 {
     public function __construct(
-        private string $username = "arnissolle",
-        private string $fullName = "Pierre Arnissolle",
-        private string $jobTitle = "Backend Developer",
-        private string $portfolioUrl = "https://arnissolle.com",
+        private readonly string $username = "arnissolle",
+        private readonly string $fullName = "Pierre Arnissolle",
+        private readonly string $jobTitle = "Backend Developer",
+        private readonly string $portfolioUrl = "https://arnissolle.com",
     ) {}
 
     public function __toString(): string
