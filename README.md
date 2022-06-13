@@ -24,5 +24,5 @@ class Arnissolle
     }
 }
 
-die(new Arnissolle);
+echo new Arnissolle;
 ```
