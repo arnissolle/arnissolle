@@ -20,3 +20,10 @@ echo new class
     }
 };
 ```
+
+Result for `PHP 8.3.3`:
+> Ahoy, World! 👋
+>
+> I'm Pierre Arnissolle, Backend Developer @ Yousign.
+>
+> Check [my website](https://arnissolle.com), or [connect with me](https://linkedin.com/in/arnissolle) on LinkedIn.
