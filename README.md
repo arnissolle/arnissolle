@@ -10,13 +10,13 @@ echo new class
 
     public function __toString(): string
     {
-        return <<<AHOY
+        return <<<MARKDOWN
             Ahoy, World! 👋
 
             I'm {$this->fullName}, {$this->jobTitle}.
 
             Check [my website]({$this->website}), or [connect with me]({$this->linkedin}) on LinkedIn.
-            AHOY;
+            MARKDOWN;
     }
 };
 ```
