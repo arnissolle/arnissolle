@@ -8,24 +8,24 @@ declare(strict_types=1);
     public function __invoke(string $rootDir): void
     {
         $assetsDir = "{$rootDir}/assets";
-        $anonymousClassFilePath = "{$assetsDir}/anonymous-class.php";
+        $ahoyWorldFilePath = "{$assetsDir}/ahoy-world.php";
         
-        $anonymousClassFileContent = file_get_contents($anonymousClassFilePath);
-        $this->replace(pattern: '/return new class/', replacement: 'echo new class', subject: $anonymousClassFileContent);
+        $ahoyWorldFileContent = file_get_contents($ahoyWorldFilePath);
+        $this->replace(pattern: '/return new class/', replacement: 'echo new class', subject: $ahoyWorldFileContent);
         
-        $anonymousClass = require $anonymousClassFilePath;
-        $this->setQueryString(class: $anonymousClass, property: 'website', queries: [
+        $ahoyWorld = require $ahoyWorldFilePath;
+        $this->setQueryString(class: $ahoyWorld, property: 'website', queries: [
             'utm_source' => 'github',
             'utm_medium' => 'social',
         ]);
         
-        $anonymousClassOutput = (string) $anonymousClass;
-        $this->replace(pattern: '/^/m', replacement: '> ', subject: $anonymousClassOutput);
+        $ahoyWorldOutput = (string) $ahoyWorld;
+        $this->replace(pattern: '/^/m', replacement: '> ', subject: $ahoyWorldOutput);
         
         $readmeFileContent = file_get_contents("{$assetsDir}/README.stub.md");
         $this->replace(pattern: '/<php-version>/', replacement: PHP_VERSION, subject: $readmeFileContent);
-        $this->replace(pattern: '/<anonymous-class>/', replacement: $anonymousClassFileContent, subject: $readmeFileContent);
-        $this->replace(pattern: '/<anonymous-class-output>/', replacement: $anonymousClassOutput, subject: $readmeFileContent);
+        $this->replace(pattern: '/<anonymous-class>/', replacement: $ahoyWorldFileContent, subject: $readmeFileContent);
+        $this->replace(pattern: '/<anonymous-class-output>/', replacement: $ahoyWorldOutput, subject: $readmeFileContent);
 
         file_put_contents("{$rootDir}/README.md", $readmeFileContent);
     }
