@@ -21,7 +21,7 @@ echo new class
 };
 ```
 
-Result for `PHP 8.2.16`:
+Result for `PHP 8.3.4`:
 > Ahoy, World! 👋
 > 
 > I'm Pierre Arnissolle, Backend Developer at Yousign.
