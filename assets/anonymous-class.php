@@ -1,7 +1,6 @@
-```php
 <?php
 
-echo new class
+return new class
 {
     private string $fullName = "Pierre Arnissolle";
     private string $jobTitle = "Backend Developer at Yousign";
@@ -19,11 +18,3 @@ echo new class
             MARKDOWN;
     }
 };
-```
-
-Result for `PHP 8.2.16`:
-> Ahoy, World! 👋
-> 
-> I'm Pierre Arnissolle, Backend Developer at Yousign.
-> 
-> Check [my website](https://arnissolle.com?utm_source=github&utm_medium=social), or [connect with me](https://linkedin.com/in/arnissolle) on LinkedIn.

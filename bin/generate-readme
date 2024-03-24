@@ -1,0 +1,46 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+(new class {
+
+    public function __invoke(string $rootDir): void
+    {
+        $assetsDir = "{$rootDir}/assets";
+        $anonymousClassFilePath = "{$assetsDir}/anonymous-class.php";
+        
+        $anonymousClassFileContent = file_get_contents($anonymousClassFilePath);
+        $this->replace(pattern: '/return new class/', replacement: 'echo new class', subject: $anonymousClassFileContent);
+        
+        $anonymousClass = require $anonymousClassFilePath;
+        $this->setQueryString(class: $anonymousClass, property: 'website', queries: [
+            'utm_source' => 'github',
+            'utm_medium' => 'social',
+        ]);
+        
+        $anonymousClassOutput = (string) $anonymousClass;
+        $this->replace(pattern: '/^/m', replacement: '> ', subject: $anonymousClassOutput);
+        
+        $readmeFileContent = file_get_contents("{$assetsDir}/README.stub.md");
+        $this->replace(pattern: '/<php-version>/', replacement: PHP_VERSION, subject: $readmeFileContent);
+        $this->replace(pattern: '/<anonymous-class>/', replacement: $anonymousClassFileContent, subject: $readmeFileContent);
+        $this->replace(pattern: '/<anonymous-class-output>/', replacement: $anonymousClassOutput, subject: $readmeFileContent);
+
+        file_put_contents("{$rootDir}/README.md", $readmeFileContent);
+    }
+
+    private function setQueryString(object $class, string $property, array $queries): void
+    {
+        $reflectionClass = new ReflectionClass($class);
+        $reflectionProperty = $reflectionClass->getProperty($property);
+        $reflectionProperty->setAccessible(true);
+        $reflectionProperty->setValue($class, $reflectionProperty->getValue($class) . '?' . http_build_query($queries));
+    }
+
+    private function replace(string $pattern, string $replacement, string &$subject): void
+    {
+        $subject = preg_replace($pattern, $replacement, $subject);
+    }
+
+})(rootDir: __DIR__ . '/..');
