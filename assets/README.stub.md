@@ -2,5 +2,5 @@
 <anonymous-class>
 ```
 
-Result for `PHP <php-version>`:
+Output for `PHP <php-version>`:
 <anonymous-class-output>
