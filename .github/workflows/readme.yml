@@ -13,27 +13,25 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Setup PHP
+    - name: Setup PHP & Composer
       uses: shivammathur/setup-php@v2
       with:
         php-version: 'latest'
 
-    - name: Install Composer
-      run: |
-        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-        php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-
     - name: Install Dependencies for Production
       run: composer install --no-dev --optimize-autoloader
 
+    - name: Easy Coding Standard
+      run: php vendor/bin/ecs
+
     - name: Generate README.md
-      run: php bin/readme-generate
+      run: php bin/readme
 
     - name: Configure Git
       run: |
         git config --global user.name "Pierre Arnissolle"
         git config --global user.email "pierre@arnissolle.com"
 
-    - name: Check for changes
+    - name: Check for changes and commit
       run: |
         git diff --exit-code || (git commit -am "Update README.md from GitHub Actions" && git push)

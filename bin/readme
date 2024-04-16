@@ -7,13 +7,11 @@ use Arnissolle\Arnissolle\Readme;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-(new class {
-
+(new class() {
     public function __invoke(string $rootDir): void
     {
         $readme = Readme::generate();
-        
+
         \file_put_contents("{$rootDir}/README.md", $readme);
     }
-
 })(rootDir: __DIR__ . '/..');

@@ -11,5 +11,7 @@
             "email": "pierre@arnissolle.com"
         }
     ],
-    "require": {}
+    "require-dev": {
+        "symplify/easy-coding-standard": "^12.1"
+    }
 }
