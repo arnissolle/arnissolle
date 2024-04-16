@@ -1,0 +1,15 @@
+{
+    "name": "arnissolle/arnissolle",
+    "autoload": {
+        "psr-4": {
+            "Arnissolle\\Arnissolle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pierre Arnissolle",
+            "email": "pierre@arnissolle.com"
+        }
+    ],
+    "require": {}
+}

@@ -18,8 +18,16 @@ jobs:
       with:
         php-version: 'latest'
 
+    - name: Install Composer
+      run: |
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+    - name: Install Dependencies for Production
+      run: composer install --no-dev --optimize-autoloader
+
     - name: Generate README.md
-      run: php bin/generate-readme
+      run: php bin/readme-generate
 
     - name: Configure Git
       run: |

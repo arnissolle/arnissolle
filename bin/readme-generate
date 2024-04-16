@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Arnissolle\Arnissolle\Readme;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+(new class {
+
+    public function __invoke(string $rootDir): void
+    {
+        $readme = Readme::generate();
+        
+        \file_put_contents("{$rootDir}/README.md", $readme);
+    }
+
+})(rootDir: __DIR__ . '/..');
