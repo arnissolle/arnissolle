@@ -4,9 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a63651a6ebb37b462b77fa6f7566da7",
-    "packages": [],
-    "packages-dev": [
+    "content-hash": "9d4d6fea0dc72ace54d59bf39b59ae10",
+    "packages": [
         {
             "name": "symplify/easy-coding-standard",
             "version": "12.1.14",
@@ -66,6 +65,7 @@
             "time": "2024-02-23T13:10:40+00:00"
         }
     ],
+    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": [],
