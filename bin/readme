@@ -3,7 +3,7 @@
 
 declare(strict_types=1);
 
-use Arnissolle\Arnissolle\Readme;
+use Arnissolle\Pierre\Readme;
 
 require __DIR__ . '/../vendor/autoload.php';
 

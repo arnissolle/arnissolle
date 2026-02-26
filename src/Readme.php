@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Arnissolle\Arnissolle;
+namespace Arnissolle\Pierre;
 
 final class Readme
 {

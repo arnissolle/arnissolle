@@ -1,8 +1,8 @@
 {
-    "name": "arnissolle/arnissolle",
+    "name": "arnissolle/pierre",
     "autoload": {
         "psr-4": {
-            "Arnissolle\\Arnissolle\\": "src/"
+            "Arnissolle\\Pierre\\": "src/"
         }
     },
     "authors": [
