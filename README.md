@@ -1,7 +1,7 @@
 Ahoy, World! 👋
 
-I'm Pierre Arnissolle, Backend Developer at Yousign.
+I'm Pierre Arnissolle, Backend Engineer at Yousign (soon-to-be Youtrust).
 
-🫵 You can [check my website](https://pierre.arnissolle.com?utm_source=github&utm_medium=social) if you want learn more about me.
-
-Feel free to [connect with me](https://linkedin.com/in/arnissolle) on LinkedIn 🤝
+🪴 I plan to update [my website]({$self->website}) one day...
+🌐 After which, it will become my main/preffered online presence and will be ActivityPub-compliant.
+💼 In the meantime, I'm only maintaining [my LinkedIn profile]({$self->linkedin}).
