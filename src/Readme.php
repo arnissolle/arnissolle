@@ -4,26 +4,26 @@ declare(strict_types=1);
 
 namespace Arnissolle\Pierre;
 
-final class Readme
+final readonly class Readme
 {
-    private string $website = 'https://pierre.arnissolle.com?utm_source=github&utm_medium=social';
+    public function __construct(
+        private string $website = 'https://pierre.arnissolle.com?utm_source=github&utm_medium=social',
+        private string $linkedin = 'https://linkedin.com/in/arnissolle',
+    ) {
+    }
 
-    private string $linkedin = 'https://linkedin.com/in/arnissolle';
-
-    public static function generate(): string
+    public function __toString(): string
     {
-        $self = new static();
-
-        return <<<'MARKDOWN'
+        return <<<MARKDOWN
             Ahoy, World! 👋
 
             👨🏻‍🌾 I'm Pierre Arnissolle, Backend Engineer at Yousign (soon-to-be Youtrust).
 
-            🪴 I plan to update [my website]({$self->website}) one day...
+            🪴 I plan to update [my website]({$this->website}) one day...
             
             🌐 After which, it will become my main/preffered online presence and will be ActivityPub-compliant.
             
-            💼 In the meantime, I'm only maintaining [my LinkedIn profile]({$self->linkedin}).
+            💼 In the meantime, I'm only maintaining [my LinkedIn profile]({$this->linkedin}).
             MARKDOWN;
     }
 };

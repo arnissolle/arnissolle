@@ -10,7 +10,7 @@ require __DIR__ . '/../vendor/autoload.php';
 (new class() {
     public function __invoke(string $rootDir): void
     {
-        $readme = Readme::generate();
+        $readme = (string) new Readme();
 
         \file_put_contents("{$rootDir}/README.md", $readme);
     }
