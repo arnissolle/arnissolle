@@ -1,0 +1,45 @@
+name: Generate README.md
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup PHP & Composer
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 'latest'
+
+    - name: Install Dependencies for Production
+      run: composer install --no-dev --optimize-autoloader
+
+    - name: Easy Coding Standard
+      run: php vendor/bin/ecs
+
+    - name: Generate README.md
+      run: php bin/readme
+
+    - name: Configure Git
+      run: |
+        git config user.name "Pierre Arnissolle"
+        git config user.email "pierre@arnissolle.com"
+
+    - name: Squash everything into a single commit
+      run: |
+        git diff --exit-code || (
+          git checkout --orphan tmp &&
+          git add -A &&
+          git commit -m "initial commit" -m "[skip ci]" &&
+          git branch -D main &&
+          git branch -m main &&
+          git push --force origin main
+        )
